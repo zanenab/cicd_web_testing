@@ -12,9 +12,11 @@ jobs:
     steps: 
       - name: Checkout repository 
         uses: actions/checkout@v4
+      - name: Run web server
+        run: python -m http.server 8000
       - name: find files
         run: ls -al
-      - name: find files
+      - name: find test files
         run: ls -al test
       - name: Install pip dependencies 
         run: | 
