@@ -19,6 +19,6 @@ jobs:
       - name: Install pip dependencies 
         run: | 
           pip install --upgrade pip 
-          pip install -r test/requirement.txt 
+          pip install -r ./test/requirements.txt
       - name: Run Test 
         run: python -m robot -d test/results test/exists.robot
