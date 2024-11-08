@@ -10,9 +10,21 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                pip install --upgrade pip 
-                pip install -r requirement.txt
-                python -m robot -d test/results test/exists.robot
+                script {
+                    sh """
+                    pip install --upgrade pip
+                    """
+                }
+                script {
+                    sh """
+                    pip install -r requirement.txt
+                    """
+                }
+                script {
+                    sh """
+                    python -m robot -d test/results test/exists.robot
+                    """
+                }
             }
         }
         stage('Deploy') {
